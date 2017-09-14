@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>produxts</title>
+    <script src="https://unpkg.com/vue@2.4.3/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="checkbox" v-model="sel" value="running">Running
+    <input type="checkbox" v-model="sel" value="walking">Walking
+</div>
+<script>
+var vm = new Vue({
+   el: "#app",
+    data: {
+       sel: []
+    }
+});
+</script>
+</body>
+</html>
