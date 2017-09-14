@@ -4,19 +4,42 @@
     <meta charset="UTF-8">
     <title>produxts</title>
     <script src="https://unpkg.com/vue@2.4.3/dist/vue.js"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div id="app">
-    <input type="checkbox" v-model="sel" value="running">Running
-    <input type="checkbox" v-model="sel" value="walking">Walking
+    <product_list :products="products"></product_list>
 </div>
+
 <script>
-var vm = new Vue({
-   el: "#app",
-    data: {
-       sel: []
-    }
-});
+
+    Vue.component('product_list_item', {
+        template: '<li> <div class="row product_item"><img class="col-sm-2" :src="product.image"><div class="description col-sm-5"><h2>{{product.name}}</h2> <p>{{product.description}}</p></div></div></li>',
+        props: ['product']
+    });
+
+    Vue.component('product_list', {
+        template: '<ul><product_list_item v-for="product in products" :product="product"></product_list_item></ul>',
+        props: ['products']
+    })
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            products: []
+        },
+
+        created: function () {
+            $.getJSON('https://hplussport.com/api/products')
+                .done(function (data) {
+                    vm.products = data;
+                    console.log(vm.products);
+                });
+        }
+    });
 </script>
 </body>
 </html>
