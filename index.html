@@ -18,7 +18,7 @@
 <script>
 
     Vue.component('product_list_item', {
-        template: '<li> <div class="row product_item"><img class="col-sm-2" :src="product.image"><div class="description col-sm-5"><h2>{{product.name}}</h2> <p>{{product.description}}</p></div></div></li>',
+        template: '<li> <div class="row product_item"><img class="col-sm-3" :src="product.image"><div class="description col-sm-6"><h2>{{product.name}}</h2> <p>{{product.description}}</p></div></div></li>',
         props: ['product']
     });
 

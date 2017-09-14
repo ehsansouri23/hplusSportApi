@@ -2,8 +2,8 @@
     border-width: 10px;
     border-color: rgba(0, 0, 0, 0.64);
     padding: 7px;
-    /*float: left;*/
     margin: auto;
+    width: 65%;
 }
 
 .product_item:hover {
@@ -16,7 +16,7 @@
 }
 
 .description {
-    /*float: right;*/
+
 }
 
 li {
